@@ -6,8 +6,23 @@ Look at the name at the very top of this page. If it says **coltonsharp-dev / �
 looking at Mr. Sharp's copy and nothing you do will save.
 
 Go back to his repo, click the green **Use this template** button → **Create a new repository**,
-name it, choose **Public**, and create it. Then come back here — the name at the top should be
+choose **Public**, and create it. Then come back here — the name at the top should be
 **your username**.
+
+### Name it exactly like this
+
+```
+ala2627-firstnamelastnameCTE-AD
+```
+
+All one word for the name, no spaces, no punctuation. So Colton Sharp would be:
+
+```
+ala2627-coltonsharpCTE-AD
+```
+
+Type it carefully — **this name becomes part of your web address**, and it is a nuisance to change
+later.
 
 Everything below assumes you are in **your own** repo.
 
@@ -90,8 +105,11 @@ Once, at the start:
 Your page is then at:
 
 ```
-https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
+https://YOUR-USERNAME.github.io/ala2627-firstnamelastnameCTE-AD/
 ```
+
+so Colton Sharp's would be `https://coltonsharp.github.io/ala2627-coltonsharpCTE-AD/` — your
+username first, then the repo name, spelled and capitalised **exactly** as you created it.
 
 After that, every commit updates it automatically. Give it a minute. **Open it on your phone** —
 that is the real test.
@@ -113,6 +131,7 @@ Good for a typo. Use the codespace for real work.
 | What you see | What it actually is |
 |---|---|
 | Nothing saves / repo is not yours | Still in Mr. Sharp's copy. See Step 0. |
+| Live URL 404s and the file is right | The repo name in the address is misspelled or mis-capitalised. It must match exactly. |
 | Page is blank | A tag you never closed. Look for a `<p>` with no `</p>`. |
 | Terminal will not take a command | The server is running in it. **Ctrl+C**, or open a second terminal with **+**. |
 | Changes not on the live URL | You edited but did not **commit and push**. Check Source Control for a number. |
