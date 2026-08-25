@@ -38,6 +38,16 @@
   "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
   "[css]":  { "editor.defaultFormatter": "vscode.css-language-features" },
 
+  // Python lives in game/ and does NOT follow the 2-space rule above. Four spaces
+  // is the language's own convention, and unlike HTML the indent is not cosmetic —
+  // it is what says which lines are inside your if and your while. Format-on-save
+  // is off for Python because it needs an extension github.dev cannot run, and a
+  // half-working formatter is worse than none.
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": false
+  },
+
   // A quiet editor. No minimap eating screen width on a small display.
   "editor.minimap.enabled": false,
   "workbench.startupEditor": "readme"
