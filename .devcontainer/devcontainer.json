@@ -49,7 +49,17 @@
       "extensions": [
         "ms-python.python",           // run and debug Python
         "esbenp.prettier-vscode",     // one formatter, so nobody argues about spacing
-        "ms-vscode.live-server"       // preview HTML with live reload
+        "ms-vscode.live-server",      // preview HTML with live reload
+
+        // Codex, OpenAI's coding agent. Installing it here means every student
+        // has it on day one instead of hunting the marketplace.
+        //
+        // IT WILL NOT SIGN IN ON A FREE CHATGPT ACCOUNT. The extension supports
+        // Plus, Pro, Business, Edu and Enterprise plans only. If ALA provides
+        // ChatGPT Edu, it works; if the school accounts are free tier, students
+        // get an icon that can never authenticate — check one account before
+        // telling a class to use it.
+        "openai.chatgpt"
       ]
     }
   },
