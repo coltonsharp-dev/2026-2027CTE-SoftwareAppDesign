@@ -28,6 +28,18 @@ Everything below assumes you are in **your own** repo.
 
 ---
 
+## What is in here — two projects, one codespace
+
+| Folder | Project | Run it by |
+|---|---|---|
+| **root** — `index.html`, `styles.css` | Your landing page. This is what GitHub Pages puts on the internet. | Terminal: `python -m http.server 8000` |
+| **`game/`** — `game.py` | The Vault, a text adventure. Its own README is in that folder. | Open the file, click **▶ Run** — or `python game/game.py` |
+
+One codespace opens both. The `game/` folder is invisible to your website — Pages only serves
+`index.html` from the root, so the two never interfere.
+
+---
+
 ## 1. Open your codespace
 
 A codespace is a real computer that runs in your browser. You get a terminal, Python, and a live
