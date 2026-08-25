@@ -1,18 +1,33 @@
 # Your landing page
 
-This is **your** repository now. Not a copy of Mr. Sharp's — your own, with your own history.
-Nothing you do here can break anyone else's.
+**Step 0 — is this repo yours?**
+
+Look at the name at the very top of this page. If it says **coltonsharp-dev / …** you are still
+looking at Mr. Sharp's copy and nothing you do will save.
+
+Go back to his repo, click the green **Use this template** button → **Create a new repository**,
+name it, choose **Public**, and create it. Then come back here — the name at the top should be
+**your username**.
+
+Everything below assumes you are in **your own** repo.
 
 ---
 
-## 1. Open the editor
+## 1. Open your codespace
 
-On **your** repository page on GitHub, press the **`.`** key.
+A codespace is a real computer that runs in your browser. You get a terminal, Python, and a live
+preview — none of which a normal text editor has.
 
-That is a full-screen code editor, running in the browser. No install, nothing to download.
+1. Click the green **`< > Code`** button (top right of the file list).
+2. Click the **Codespaces** tab.
+3. Click **Create codespace on main**.
 
-> If `.` does nothing, look at the address bar and change **github.com** to **github.dev**, then
-> press Enter. Same thing. Some keyboard layouts swallow the shortcut.
+The first one takes a few minutes — it is building a machine from scratch. After that, the same
+button reopens it in seconds.
+
+> **You get a limited number of free hours each month, and it is plenty** — but when you are done
+> for the day, go to **github.com/codespaces** and **Stop** it. It also stops itself after 30
+> minutes of you not touching it.
 
 ---
 
@@ -20,7 +35,7 @@ That is a full-screen code editor, running in the browser. No install, nothing t
 
 Open `index.html` and change, in this order:
 
-1. The `<title>` — it is the browser tab, and it is what a search engine shows.
+1. The `<title>` — this is the browser tab, and what a search engine shows.
 2. The `<h1>` — your name.
 3. The tagline under it.
 4. Everything marked `CHANGE THIS` in a comment.
@@ -30,34 +45,66 @@ whole page changes. That is what those variables are for.
 
 ---
 
-## 3. Save it properly — this is the part that matters
+## 3. See it while you work
 
-Editing is not saving. In this editor your changes live in the browser until you **commit** them.
+In the terminal at the bottom of the screen, type:
 
-1. Click the **Source Control** icon in the left bar — the one that looks like a branch. It shows
-   a number: how many files you changed.
+```
+python -m http.server 8000
+```
+
+A box pops up saying a port is available — click **Open in Browser**. Your page loads in a new tab.
+Change a file, save, reload that tab, and your change is there.
+
+**That terminal is now busy running the server.** To type another command, press **Ctrl+C** to stop
+it, or click **+** to open a second terminal. It is not frozen.
+
+---
+
+## 4. Save it properly — this is the part people skip
+
+Editing is not saving to GitHub. Your work is on that machine until you **commit** it.
+
+1. Click **Source Control** in the left bar — the branch-looking icon. It shows a number: how many
+   files you changed.
 2. Type a message in the box. Say **what you changed**, not "update":
    - bad → `update`
    - good → `Change heading to my name and set the accent colour`
-3. Click **Commit & Push** (or the ✓ at the top).
+3. Click **Commit**, then **Sync Changes** (or the **…** menu → Push).
 
-Your change is now on GitHub, with your name and a timestamp on it, forever.
+Now it is on GitHub with your name and a timestamp on it, permanently.
 
-**Commit often.** Every time you finish one thing. A commit is free and it is the only way back
+**Commit often** — every time you finish one thing. A commit is free and it is the only way back
 if you break something.
 
 ---
 
-## 4. See it live
+## 5. Put it on the internet
 
-Once Pages is turned on (Mr. Sharp will walk you through it), your page is at:
+Once, at the start:
+
+1. Your repo → **Settings** → **Pages** (left sidebar).
+2. **Source: Deploy from a branch**, Branch **main**, folder **/ (root)** → **Save**.
+3. Wait a minute, refresh, and a URL appears.
+
+Your page is then at:
 
 ```
-https://YOUR-USERNAME.github.io/REPO-NAME/
+https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
 ```
 
-Wait a minute after your first commit — the first publish is slow. Then **open it on your phone**,
-not just this Chromebook. That is the real test.
+After that, every commit updates it automatically. Give it a minute. **Open it on your phone** —
+that is the real test.
+
+---
+
+## Just need to fix one word?
+
+You do not have to start a codespace. On your repo press **`.`** (period) — a lightweight editor
+opens instantly.
+
+It edits and commits, and that is all: **no terminal, no `python -m http.server`, no preview.**
+Good for a typo. Use the codespace for real work.
 
 ---
 
@@ -65,11 +112,14 @@ not just this Chromebook. That is the real test.
 
 | What you see | What it actually is |
 |---|---|
+| Nothing saves / repo is not yours | Still in Mr. Sharp's copy. See Step 0. |
 | Page is blank | A tag you never closed. Look for a `<p>` with no `</p>`. |
+| Terminal will not take a command | The server is running in it. **Ctrl+C**, or open a second terminal with **+**. |
+| Changes not on the live URL | You edited but did not **commit and push**. Check Source Control for a number. |
+| Still not showing after pushing | Give it a minute, then hard-reload: **Ctrl+Shift+R**. |
 | **404** on your Pages URL | The filename. It must be `index.html` — all lower case. `Index.html` will not serve. |
-| Changes not showing up | You edited but did not **commit**. Check Source Control for a number. |
-| Still not showing after a commit | Give it a minute, then hard-reload: **Ctrl+Shift+R**. |
-| Lost the editor | Go back to your repo on github.com and press `.` again. Nothing is lost. |
+| Page loads with no styling | `styles.css` is missing or renamed. The name in the `<link>` must match the file exactly. |
+| Codex will not sign in | It needs a **Plus, Pro, Business, Edu or Enterprise** ChatGPT plan. A free account cannot sign in. |
 
 ---
 
