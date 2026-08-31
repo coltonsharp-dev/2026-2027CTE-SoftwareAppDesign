@@ -28,15 +28,17 @@ Everything below assumes you are in **your own** repo.
 
 ---
 
-## What is in here — two projects, one codespace
+## What is in here — three projects, one codespace
 
 | Folder | Project | Run it by |
 |---|---|---|
 | **root** — `index.html`, `styles.css` | Your landing page. This is what GitHub Pages puts on the internet. | Terminal: `python -m http.server 8000` |
 | **`game/`** — `game.py` | The Vault, a text adventure. Its own README is in that folder. | Open the file, click **▶ Run** — or `python game/game.py` |
+| **`assignments/01-this-is-me/`** | Assignment 01. A working site you make yours — 14 TODOs. Its own README is in that folder. | Serve the root, then visit `/assignments/01-this-is-me/` |
 
-One codespace opens both. The `game/` folder is invisible to your website — Pages only serves
-`index.html` from the root, so the two never interfere.
+One codespace opens all three. `game/` is invisible to your website, and the assignment sits in
+its own folder — Pages serves `index.html` from the root, so none of them interfere. The
+assignment does get its own live address once Pages is on, one level down.
 
 ---
 

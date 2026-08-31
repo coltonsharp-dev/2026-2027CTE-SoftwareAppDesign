@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="midnight" data-font="sans" data-layout="stack">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TODO 1 — Put your name in the tab.
+       This is what shows on the browser tab, not on the page. -->
+  <title>This Is Me — Your Name Here</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     THE CONTROL BAR
+     These buttons already work. You do not have to touch them.
+     Later in the unit you will learn how they work.
+     ═══════════════════════════════════════════════════════════════════ -->
+<header class="controls" aria-label="Page controls">
+  <span class="controls-label">Make it yours</span>
+
+  <div class="control">
+    <span class="control-name">Theme</span>
+    <div class="swatches" data-control="theme">
+      <button data-value="midnight" class="sw sw-midnight" aria-label="Midnight"></button>
+      <button data-value="paper"    class="sw sw-paper"    aria-label="Paper"></button>
+      <button data-value="sunset"   class="sw sw-sunset"   aria-label="Sunset"></button>
+      <button data-value="forest"   class="sw sw-forest"   aria-label="Forest"></button>
+      <button data-value="candy"    class="sw sw-candy"    aria-label="Candy"></button>
+      <button data-value="mono"     class="sw sw-mono"     aria-label="Mono"></button>
+    </div>
+  </div>
+
+  <div class="control">
+    <span class="control-name">Type</span>
+    <div class="pills" data-control="font">
+      <button data-value="sans">Sans</button>
+      <button data-value="serif">Serif</button>
+      <button data-value="mono">Mono</button>
+    </div>
+  </div>
+
+  <div class="control">
+    <span class="control-name">Layout</span>
+    <div class="pills" data-control="layout">
+      <button data-value="stack">Stack</button>
+      <button data-value="split">Split</button>
+      <button data-value="cards">Cards</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       SECTION 1 — THE HERO
+       This is the first thing anyone sees. Make it sound like you.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <!-- TODO 2 — Replace this with something true about you in 3-5 words.
+         Not "Welcome to my website". Something only you would write. -->
+    <p class="eyebrow">Fifteen. Mesa, Arizona. Usually building something.</p>
+
+    <!-- TODO 3 — Your name. This is the biggest text on the page. -->
+    <h1>Your Name</h1>
+
+    <!-- TODO 4 — One sentence. What should someone know about you first? -->
+    <p class="lede">
+      I am learning to build things that live on the internet, and this is the
+      first one that is entirely mine.
+    </p>
+
+    <!-- TODO 5 — Change these two buttons to say what YOU want them to say. -->
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#things">What I'm into</a>
+      <a class="btn btn-ghost" href="#now">What I'm doing now</a>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       SECTION 2 — THREE THINGS
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section id="things">
+    <h2>Three things about me</h2>
+
+    <div class="grid">
+      <!-- TODO 6 — Replace all three cards. Keep the shape, change the words.
+           The emoji is just text — swap it for any character you like. -->
+      <article class="card" data-reveal>
+        <span class="card-icon">🎧</span>
+        <h3>Something I do every day</h3>
+        <p>Replace this with a real one. Two sentences at most — a page that
+           says less but means it always reads better than one that pads.</p>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="card-icon">🛠️</span>
+        <h3>Something I am good at</h3>
+        <p>It does not have to be school. Being the person who fixes things
+           counts. Being patient with a little brother counts.</p>
+      </article>
+
+      <article class="card" data-reveal>
+        <span class="card-icon">🎯</span>
+        <h3>Something I want to get better at</h3>
+        <p>This one is the most interesting to read, so do not skip it.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       SECTION 3 — THE NOW LIST
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section id="now">
+    <h2>Right now</h2>
+    <p class="section-note">A snapshot of this month. You can update it later.</p>
+
+    <!-- TODO 7 — Change every line. Add or delete rows: copy a whole
+         <li> ... </li> block to add one, delete the block to remove one. -->
+    <ul class="nowlist">
+      <li><span class="now-k">Listening to</span><span class="now-v">Change me</span></li>
+      <li><span class="now-k">Watching</span><span class="now-v">Change me</span></li>
+      <li><span class="now-k">Playing</span><span class="now-v">Change me</span></li>
+      <li><span class="now-k">Learning</span><span class="now-v">How to build a website</span></li>
+    </ul>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       SECTION 4 — THE PICK-ONE
+       Click the options. The page remembers your answer.
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section>
+    <h2>Pick one</h2>
+    <p class="section-note">These already work — click them. Change the choices to your own.</p>
+
+    <!-- TODO 8 — Write two of your own either/or questions.
+         Change the text inside the buttons. -->
+    <div class="picker" data-picker="q1">
+      <span class="picker-q">Mountains or ocean?</span>
+      <button data-pick="Mountains">Mountains</button>
+      <button data-pick="Ocean">Ocean</button>
+    </div>
+
+    <div class="picker" data-picker="q2">
+      <span class="picker-q">Early bird or night owl?</span>
+      <button data-pick="Early bird">Early bird</button>
+      <button data-pick="Night owl">Night owl</button>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════════════════════════════════════════
+       SECTION 5 — THE QUOTE
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section>
+    <!-- TODO 9 — A line you actually like. A lyric, a saying, your own words. -->
+    <blockquote>
+      <p>Put a line here that means something to you.</p>
+      <cite>— Who said it</cite>
+    </blockquote>
+  </section>
+
+</main>
+
+<footer>
+  <!-- TODO 10 — Your name and the year. -->
+  <p>Built by Your Name · App Design 1 · 2026</p>
+</footer>
+
+<!-- app.js is DONE FOR YOU. Do not edit it yet — we open it in Unit 03. -->
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   styles.css — how the page LOOKS.
+   This is the file you will spend the most time in.
+
+   Everything below is grouped and labelled. You can change any value.
+   If you break something badly, delete what you changed and save again.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ── THE THEMES ────────────────────────────────────────────────────────────
+   Six colour schemes. The buttons at the top switch between them by changing
+   data-theme on the <html> tag, and each block below fills in the same six
+   names with different colours.
+
+   TODO 11 — Pick your favourite theme, then change ITS colours to yours.
+   Use https://coolors.co if you want help choosing.                        */
+
+[data-theme="midnight"] {
+  --bg:        #0f1420;   /* page background      */
+  --surface:   #1a2131;   /* cards and boxes      */
+  --text:      #e9edf5;   /* main writing         */
+  --muted:     #94a2bd;   /* quieter writing      */
+  --accent:    #4dd4ff;   /* buttons, highlights  */
+  --accent-2:  #ffd166;   /* a second highlight   */
+  --line:      #2a3348;   /* borders              */
+}
+[data-theme="paper"] {
+  --bg: #f6f5f1; --surface: #ffffff; --text: #16181d; --muted: #5d6470;
+  --accent: #2f6df6; --accent-2: #e0562f; --line: #dcd9d2;
+}
+[data-theme="sunset"] {
+  --bg: #1b1020; --surface: #2a1730; --text: #ffeaf3; --muted: #c79bb4;
+  --accent: #ff6b9d; --accent-2: #ffb86b; --line: #45264f;
+}
+[data-theme="forest"] {
+  --bg: #0d1a14; --surface: #14261d; --text: #e6f4ea; --muted: #8fb5a0;
+  --accent: #4ade80; --accent-2: #fbbf24; --line: #21382b;
+}
+[data-theme="candy"] {
+  --bg: #fff5fb; --surface: #ffffff; --text: #2b1b2b; --muted: #7c6280;
+  --accent: #d946ef; --accent-2: #22d3ee; --line: #f2dcec;
+}
+[data-theme="mono"] {
+  --bg: #ffffff; --surface: #fafafa; --text: #111111; --muted: #666666;
+  --accent: #111111; --accent-2: #666666; --line: #e2e2e2;
+}
+
+
+/* ── THE TYPEFACES ─────────────────────────────────────────────────────────
+   The Type buttons swap data-font on <html>. These are system fonts, so they
+   load instantly and work offline.                                          */
+
+[data-font="sans"]  { --face: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+[data-font="serif"] { --face: Georgia, "Iowan Old Style", "Times New Roman", serif; }
+[data-font="mono"]  { --face: ui-monospace, "Cascadia Code", Consolas, monospace; }
+
+
+/* ── THE BASICS ────────────────────────────────────────────────────────────
+   TODO 12 — Try changing --radius to 0 for sharp corners, or 24px for round. */
+
+:root { --radius: 14px; --pad: 20px; --max: 860px; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--face);
+  font-size: 17px;
+  line-height: 1.65;
+  /* transition makes the theme change fade instead of snap */
+  transition: background .25s ease, color .25s ease;
+}
+
+main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: 0; }
+
+
+/* ── HEADINGS AND TEXT ─────────────────────────────────────────────────────
+   TODO 13 — Make the h1 bigger or smaller. clamp() means: never below the
+   first number, never above the last, and it scales in between.             */
+
+h1 { font-size: clamp(38px, 8vw, 68px); line-height: 1.05; margin: 8px 0 14px; }
+h2 { font-size: clamp(22px, 4vw, 30px); margin: 0 0 6px; }
+h3 { font-size: 18px; margin: 10px 0 6px; }
+
+.eyebrow {
+  font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin: 0;
+}
+.lede { font-size: 19px; color: var(--muted); max-width: 52ch; }
+.section-note { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+
+
+/* ── THE HERO ──────────────────────────────────────────────────────────── */
+
+.hero { padding: 64px 0 48px; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+
+.btn {
+  display: inline-block; padding: 11px 20px; border-radius: 999px;
+  text-decoration: none; font-size: 15px; font-weight: 600;
+  transition: transform .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-solid { background: var(--accent); color: var(--bg); }
+.btn-ghost { border: 1px solid var(--line); color: var(--text); }
+
+
+/* ── THE CARDS ─────────────────────────────────────────────────────────────
+   The Layout buttons change data-layout, and the three rules below decide
+   how the cards arrange themselves.                                         */
+
+.grid { display: grid; gap: 14px; }
+[data-layout="stack"] .grid { grid-template-columns: 1fr; }
+[data-layout="split"] .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+[data-layout="cards"] .grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 18px;
+  /* these two lines are the fade-in — app.js adds .is-in when you scroll */
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease, border-color .2s;
+}
+.card.is-in { opacity: 1; transform: none; }
+.card:hover { border-color: var(--accent); }
+.card-icon { font-size: 26px; }
+.card p { color: var(--muted); font-size: 15.5px; margin-bottom: 0; }
+
+
+/* ── THE NOW LIST ──────────────────────────────────────────────────────── */
+
+.nowlist { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 2px; }
+.nowlist li {
+  display: flex; gap: 14px; align-items: baseline;
+  padding: 11px 0; border-bottom: 1px dashed var(--line);
+}
+.now-k { color: var(--muted); font-size: 14px; min-width: 110px; }
+.now-v { font-weight: 600; }
+
+
+/* ── THE PICKERS ───────────────────────────────────────────────────────── */
+
+.picker { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 12px 0; }
+.picker-q { min-width: 200px; color: var(--muted); }
+.picker button {
+  font: inherit; font-size: 15px; padding: 8px 16px; cursor: pointer;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--line); border-radius: 999px;
+  transition: border-color .15s, background .15s;
+}
+.picker button:hover { border-color: var(--accent); }
+.picker button.is-picked { background: var(--accent); color: var(--bg);
+  border-color: var(--accent); }
+
+
+/* ── THE QUOTE ─────────────────────────────────────────────────────────── */
+
+blockquote {
+  margin: 0; padding: 20px 24px; background: var(--surface);
+  border-left: 4px solid var(--accent-2); border-radius: 0 var(--radius) var(--radius) 0;
+}
+blockquote p { font-size: 21px; margin: 0 0 8px; }
+cite { color: var(--muted); font-style: normal; font-size: 15px; }
+
+
+/* ── THE CONTROL BAR ───────────────────────────────────────────────────────
+   You can restyle this, but do not delete it — the buttons are how the
+   page changes.                                                             */
+
+.controls {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+  padding: 12px var(--pad);
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+.controls-label { font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); }
+.control { display: flex; align-items: center; gap: 8px; }
+.control-name { font-size: 12px; color: var(--muted); }
+
+.swatches { display: flex; gap: 6px; }
+.sw { width: 22px; height: 22px; border-radius: 6px; cursor: pointer;
+  border: 2px solid transparent; }
+.sw.is-on { border-color: var(--text); }
+.sw-midnight { background: #0f1420; } .sw-paper { background: #f6f5f1; }
+.sw-sunset   { background: #ff6b9d; } .sw-forest { background: #4ade80; }
+.sw-candy    { background: #d946ef; } .sw-mono   { background: #ffffff;
+  box-shadow: inset 0 0 0 1px #ccc; }
+
+.pills { display: flex; gap: 5px; }
+.pills button {
+  font: inherit; font-size: 13px; padding: 5px 12px; cursor: pointer;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 999px;
+}
+.pills button.is-on { background: var(--accent); color: var(--bg);
+  border-color: var(--accent); }
+
+
+/* ── THE FOOTER ────────────────────────────────────────────────────────── */
+
+footer { max-width: var(--max); margin: 0 auto; padding: 32px var(--pad) 56px;
+  color: var(--muted); font-size: 14px; }
+
+
+/* ── PHONES ────────────────────────────────────────────────────────────────
+   Anything inside this block only applies on screens under 600px wide.
+   TODO 14 — Open your page on your phone and see if anything looks wrong.  */
+
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  section { padding: 34px 0; }
+  .hero { padding: 40px 0 30px; }
+  .now-k { min-width: 90px; }
+  .controls { gap: 14px; }
+}
+
+
+/* ── ACCESSIBILITY ─────────────────────────────────────────────────────────
+   Some people set their device to reduce motion. This turns the animations
+   off for them. Leave it in.                                               */
+
+/* Printing: no animation runs, so force everything visible. A printed page with
+   three empty boxes is the worst possible version of this assignment. */
+@media print {
+  .card { opacity: 1 !important; transform: none !important; }
+  .controls { display: none; }
+  body { background: #fff; color: #000; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .card { opacity: 1; transform: none; }
+}
